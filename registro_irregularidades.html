@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Irregularidades</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="icon" href="icono1-removebg-preview.ico">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="branding">
+                <img src="logo_mercantil2-removebg-preview.png" alt="logo">
+                <h1>Control de Impresiones</h1>
+            </div>
+            <div class="header-info">
+                <div class="date-display">
+                    <span id="current-date"></span>
+                </div>
+                <div class="quick-stats">
+                    <span><i class="fas fa-exclamation-triangle"></i> Registro de Irregularidades</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="home.html">Inicio</a></li>
+                <li><a href="registro_impresiones.html">Registro de Impresiones</a></li>
+                <li><a href="registro_irregularidades.html" class="active">Irregularidades</a></li>
+                <li><a href="#">Usuarios</a></li>
+                <li><a href="ubicaiones.html">Ubicaciones</a></li>
+                <li><a href="#">Configuración</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2>Listado general de irregularidades</h2>
+                <button class="btn btn-primary btn-sm">Exportar</button>
+            </div>
+            <div class="card-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Usuario</th>
+                            <th>Ubicación</th>
+                            <th>Impresora</th>
+                            <th>Información</th>
+                            <th>Descripción</th>
+                            <th>Tipo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2025-05-18</td>
+                            <td>10:15 a.m</td>
+                            <td>JR125</td>
+                            <td>P28</td>
+                            <td>9870HJAP01</td>
+                            <td>128 páginas impresas en una sola sesión</td>
+                            <td>Se detectó una impresión excesiva.</td>
+                            <td><span class="badge badge-danger">Crítica</span></td>
+                        </tr>
+                        <tr>
+                            <td>2025-05-17</td>
+                            <td>04:42 p.m</td>
+                            <td>AB321</td>
+                            <td>Ventas</td>
+                            <td>9777HJOT01</td>
+                            <td>Impresión realizada fuera del horario laboral (después de las 4:00 PM)</td>
+                            <td>Se registró una impresión fuera de horario laboral.</td>
+                            <td><span class="badge badge-warning">Media</span></td>
+                        </tr>
+                        <tr>
+                            <td>2025-05-17</td>
+                            <td>03:10 p.m</td>
+                            <td>TC789</td>
+                            <td>TI</td>
+                            <td>3erPiso-2</td>
+                            <td>Documentos duplicados detectados en menos de 5 minutos</td>
+                            <td>Se encontró impresión de documentos duplicados.</td>
+                            <td><span class="badge">Leve</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString();
+    </script>
+</body>
+</html>

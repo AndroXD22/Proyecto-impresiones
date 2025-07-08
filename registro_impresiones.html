@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Impresiones</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="icon" href="icono1-removebg-preview.ico">
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="branding">
+                <img src="logo_mercantil2-removebg-preview.png" alt="logo">
+                <h1>Control de Impresiones</h1>
+            </div>
+            <div class="header-info">
+                <div class="date-display">
+                    <span id="current-date"></span>
+                </div>
+                <div class="quick-stats">
+                    <span><i class="fas fa-exclamation-triangle"></i> Registro de Impresiones</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="home.html">Inicio</a></li>
+                <li><a href="registro_impresiones.html" class="active">Registro de Impresiones</a></li>
+                <li><a href="registro_irregularidades.html">Irregularidades</a></li>
+                <li><a href="#">Usuarios</a></li>
+                <li><a href="ubicaiones.html">Ubicaciones</a></li>
+                <li><a href="#">Configuración</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2>Historial Completo de Impresiones</h2>
+                <div class="filters">
+                    <input type="text" id="searchInput" placeholder="Filtrar por impresora o IP..." onkeyup="filtrarTabla()">
+                    <button class="btn btn-primary btn-sm" onclick="exportarExcel()">Exportar a Excel</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <table id="tablaImpresiones">
+                    <thead>
+                        <tr>
+                            <th>IP</th>
+                            <th>Ubicación</th>
+                            <th>Detalles</th>
+                            <th>Carnet</th>
+                            <th>Cantidad</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Impresora</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10.0.111.110</td>
+                            <td>P21</td>
+                            <td>Reporte_final.pdf</td>
+                            <td>B5833149</td>
+                            <td class="text-danger">128</td>
+                            <td>05/18/2025</td>
+                            <td>1:20:40 p.m</td>
+                            <td>TBMP31L1</td>
+                        </tr>
+                        <tr>
+                            <td>10.10.159.200</td>
+                            <td>Concresa</td>
+                            <td>mercantil.pdf</td>
+                            <td>B515461</td>
+                            <td>1</td>
+                            <td>05/18/2025</td>
+                            <td>3:29:34 p.m</td>
+                            <td>TBMP31L1</td>
+                        </tr>
+                        <tr>
+                            <td>10.0.6.3</td>
+                            <td>P33</td>
+                            <td>final.pdf</td>
+                            <td>b548970</td>
+                            <td class="text-danger">111</td>
+                            <td>05/18/2025</td>
+                            <td>11:59:17 a.m</td>
+                            <td>TBMP31L1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Mostrar la fecha actual
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString();
+
+        // Función para filtrar por impresora (IP)
+        function filtrarTabla() {
+            const input = document.getElementById("searchInput").value.toLowerCase();
+            const rows = document.querySelectorAll("#tablaImpresiones tbody tr");
+
+            rows.forEach(row => {
+                const impresora = row.cells[0].textContent.toLowerCase();
+                row.style.display = impresora.includes(input) ? "" : "none";
+            });
+        }
+
+        // Función para exportar tabla a Excel
+        function exportarExcel() {
+            const tabla = document.getElementById("tablaImpresiones");
+            const wb = XLSX.utils.table_to_book(tabla, { sheet: "Impresiones" });
+            XLSX.writeFile(wb, "registro_impresiones.xlsx");
+        }
+    </script>
+</body>
+</html>

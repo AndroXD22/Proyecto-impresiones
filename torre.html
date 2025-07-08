@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torre</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="icon" href="icono1-removebg-preview.ico">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="branding">
+                <img src="logo_mercantil2-removebg-preview.png" alt="logo">
+                <h1>Control de Impresiones</h1>
+            </div>
+            <div class="header-info">
+                <div class="date-display">
+                    <span id="current-date"></span>
+                </div>
+                <div class="quick-stats">
+                    <span><i class="fas fa-print"></i> 24 impresiones hoy</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <script>
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString();
+    </script>
+    
+    <nav>
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="home.html">inicio</a></li>
+                <li><a href="registro_impresiones.html">Registro de Impresiones</a></li>
+                <li><a href="registro_irregularidades.html">Irregularidades</a></li>
+                <li><a href="#">Archivos</a></li>
+                <li><a href="ubicaciones.html" class="active">Ubicaciones</a></li>
+                <li><a href="#">Configuración</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <div class="location-list">
+            <div class="list-header">
+                <h2>Pisos de la Torre</h2>
+                <a href="ubicaciones.html" class="back-button">
+                    <span>← Volver a Ubicaciones</span>
+                </a>
+            </div>
+            
+            <div class="list-container">
+                <div class="list-item">
+                    <div class="list-item-info">
+                        <h4>Piso 1</h4>
+                        <p>3 impresoras disponibles</p>
+                    </div>
+                    <div class="list-item-actions">
+                        <a href="detalles.html">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="list-item-info">
+                        <h4>Piso 2</h4>
+                        <p>2 impresoras disponibles</p>
+                    </div>
+                    <div class="list-item-actions">
+                        <a href="#">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="list-item-info">
+                        <h4>Piso 3</h4>
+                        <p>1 impresora disponible</p>
+                    </div>
+                    <div class="list-item-actions">
+                        <a href="#">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="list-item-info">
+                        <h4>Piso 4</h4>
+                        <p>4 impresoras disponibles</p>
+                    </div>
+                    <div class="list-item-actions">
+                        <a href="#">Ver detalles</a>
+                    </div>
+                </div>
+                
+                <div class="list-item">
+                    <div class="list-item-info">
+                        <h4>Piso 5</h4>
+                        <p>2 impresoras disponibles</p>
+                    </div>
+                    <div class="list-item-actions">
+                        <a href="#">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
