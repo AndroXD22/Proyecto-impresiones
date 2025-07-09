@@ -240,6 +240,7 @@ th {
 .btn-primary {
     background-color: var(--secondary-color);
     color: white;
+    text-decoration: none;
 }
 
 .btn-sm {
@@ -331,7 +332,6 @@ th {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
 }
 
 .back-button {
@@ -343,6 +343,9 @@ th {
     display: inline-flex;
     align-items: center;
     gap: 5px;
+    font-weight: bold;
+    margin-left: auto;
+    display: inline-flex;
 }
 
 .back-button:hover {
@@ -395,8 +398,8 @@ th {
     position: relative;
 }
 
-.detail-header h1 {
-    font-size: 28px;
+.list-header h1 {
+    font-size: 35px;
     color: var(--primary-color);
     margin: 15px 0 10px;
 }

@@ -20,7 +20,7 @@
                     <span id="current-date"></span>
                 </div>
                 <div class="quick-stats">
-                    <span><i class="fas fa-print"></i> 24 impresiones hoy</span>
+                    <span><i class="fas fa-print"></i> Detalles de Piso</span>
                 </div>
             </div>
         </div>
@@ -38,22 +38,22 @@
                 <li><a href="registro_irregularidades.html">Irregularidades</a></li>
                 <li><a href="#">Archivos</a></li>
                 <li><a href="ubicaciones.html" class="active">Ubicaciones</a></li>
-                <li><a href="#">Configuración</a></li>
             </ul>
         </div>
     </nav>
     
     <main class="container">
-        <div class="detail-header">
-            <a href="torre.html" class="back-button">
-                <span>← Volver a Pisos</span>
-            </a>
-            <h1>Piso 3 - Recursos Humanos</h1>
-            <div class="location-info">
-                <span><i class="fas fa-map-marker-alt"></i> Torre Principal, Nivel 3</span>
+        <div class="location-list">
+        <div class="list-header">
+            <h1>Piso 1</h1>
+                <a href="ubicaciones.html" class="back-button">
+                    <span>← Volver a Pisos</span>
+                </a>
+        </div>
+        <div class="location-info">
+                <span><i class="fas fa-map-marker-alt"></i> Torre Principal, Nivel 1</span>
                 <span><i class="fas fa-print"></i> 1 impresora disponible</span>
             </div>
-        </div>
         
         <div class="dashboard">
             <!-- Estadísticas principales -->
@@ -179,8 +179,8 @@
             <!-- Actividad reciente -->
             <div class="card recent-activity">
                 <div class="card-header">
-                    <h3 class="card-title">Actividad reciente</h3>
-                    <button class="btn btn-primary btn-sm">Exportar</button>
+                    <h3 class="card-title">Actividad</h3>
+                    <a href="actividad.html" class="btn btn-primary btn-sm">Ver toda la actividad</a>
                 </div>
                 <div class="card-body">
                     <table>
@@ -234,6 +234,63 @@
                 </div>
             </div>
             
+            <!-- Actividad de usuarios -->
+            <div class="card recent-activity">
+                <div class="card-header">
+                    <h3 class="card-title">Actividad de usuarios</h3>
+                    <button class="btn btn-primary btn-sm" id="exportUserActivity">Ver todas</button>
+                </div>
+                <div class="card-body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Usuario</th>
+                                <th>Impresiones hoy</th>
+                                <th>Páginas hoy</th>
+                                <th>Último documento</th>
+                                <th>Hora</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>B583314</td>
+                                <td>3</td>
+                                <td class="text-danger">48</td>
+                                <td>Informe_finanzas.pdf</td>
+                                <td>10:20 AM</td>
+                            </tr>
+                            <tr>
+                                <td>B436271</td>
+                                <td>2</td>
+                                <td>40</td>
+                                <td>Reporte_RH.pdf</td>
+                                <td>10:15 AM</td>
+                            </tr>
+                            <tr>
+                                <td>B123456</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>Nómina_abril.pdf</td>
+                                <td>10:12 AM</td>
+                            </tr>
+                            <tr>
+                                <td>B854832</td>
+                                <td>1</td>
+                                <td>16</td>
+                                <td>Evaluaciones.pptx</td>
+                                <td>10:05 AM</td>
+                            </tr>
+                            <tr>
+                                <td>B274832</td>
+                                <td>1</td>
+                                <td>12</td>
+                                <td>Contratos_nuevos.docx</td>
+                                <td>09:58 AM</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             
     </main>
     

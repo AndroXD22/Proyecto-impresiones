@@ -20,7 +20,7 @@
                     <span id="current-date"></span>
                 </div>
                 <div class="quick-stats">
-                    <span><i class="fas fa-print"></i> 0 impresiones hoy</span>
+                    <span><i class="fas fa-print"></i> 1.248 impresiones hoy</span>
                 </div>
             </div>
         </div>
@@ -38,7 +38,6 @@
                 <li><a href="registro_irregularidades.html">Irregularidades</a></li>
                 <li><a href="#">Usuarios</a></li>
                 <li><a href="ubicaciones.html">Ubicaciones</a></li>
-                <li><a href="#">Configuración</a></li>
             </ul>
         </div>
     </nav>
@@ -47,210 +46,229 @@
         <div class="dashboard">
             <!-- Estadísticas principales -->
             <div class="card stat-card">
-                <div class="card-body">
-                    <div class="stat-value">1,248</div>
-                    <div class="stat-label">Impresiones hoy</div>
-                    <div class="text-success">↑ 12% vs promedio</div>
-                </div>
+            <div class="card-body">
+                <div class="stat-value">1.248</div>
+                <div class="stat-label">Impresiones hoy</div>
+                <div class="text-success">↑ 12% vs promedio</div>
+            </div>
             </div>
             
             <div class="card stat-card">
-                <div class="card-body">
-                    <div class="stat-value">8.2</div>
-                    <div class="stat-label">Páginas por impresión</div>
-                    <div class="text-danger">↑ 23% vs promedio</div>
-                </div>
+            <div class="card-body">
+                <div class="stat-value">8,2</div>
+                <div class="stat-label">Páginas por impresión</div>
+                <div class="text-danger">↑ 23% vs promedio</div>
+            </div>
             </div>
             
             <div class="card stat-card">
-                <div class="card-body">
-                    <div class="stat-value">42</div>
-                    <div class="stat-label">Alertas hoy</div>
-                    <div class="text-warning">↑ 5% vs ayer</div>
-                </div>
+            <div class="card-body">
+                <div class="stat-value">42</div>
+                <div class="stat-label">Alertas hoy</div>
+                <div class="text-warning">↑ 5% vs ayer</div>
+            </div>
             </div>
             
             <div class="card stat-card">
-                <div class="card stat-card">
-                    <div class="card-body">
-                        <div class="stat-value">B583314</div>
-                        <div class="stat-label">Usuario más activo</div>
-                        <div class="text-danger">128 páginas hoy</div>
-                    </div>
-                </div>                
+            <div class="card stat-card">
+                <div class="card-body">
+                <div class="stat-value">B583314</div>
+                <div class="stat-label">Usuario más activo</div>
+                <div class="text-danger">128 páginas hoy</div>
+                </div>
+            </div>                
             </div>
             
             <!-- Gráfico principal -->
             <div class="card main-chart">
-                <div class="card-header">
-                    <h3 class="card-title">Impresiones por día (últimos 30 días)</h3>
-                </div>
-                <div class="card-body">
-                    <canvas id="impressionsChart" width="400" height="200"></canvas>
-                </div>
+            <div class="card-header">
+                <h3 class="card-title">Impresiones por día (últimos 30 días)</h3>
+            </div>
+            <div class="card-body">
+                <canvas id="impressionsChart" width="400" height="200"></canvas>
+            </div>
             </div>
             
             <!-- Irregularidades -->
             <div class="card irregularities">
-                <div class="card-header">
-                    <h3 class="card-title">Irregularidades detectadas</h3>
-                    <button class="btn btn-primary btn-sm" href="registro_irregularidades.html">Ver todas</button>
+            <div class="card-header">
+                <h3 class="card-title">Irregularidades detectadas</h3>
+                <button class="btn btn-primary btn-sm" href="registro_irregularidades.html">Ver todas</button>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-danger">
+                <div class="alert-icon">!</div>
+                <div>
+                    <strong>Usuario B583314</strong> - 3 impresiones con más de 100 páginas
+                    <div class="text-muted">Hace 2 horas</div>
                 </div>
-                <div class="card-body">
-                    <div class="alert alert-danger">
-                        <div class="alert-icon">!</div>
-                        <div>
-                            <strong>Usuario B583314</strong> - 3 impresiones con más de 100 páginas
-                            <div class="text-muted">Hace 2 horas</div>
-                        </div>
-                    </div>
-                    
-                    <div class="alert alert-warning">
-                        <div class="alert-icon">!</div>
-                        <div>
-                            <strong>P33</strong> - 45% sobre el promedio
-                            <div class="text-muted">Hace 4 horas</div>
-                        </div>
-                    </div>
-                    
-                    <div class="alert alert-danger">
-                        <div class="alert-icon">!</div>
-                        <div>
-                            <strong>Concresa</strong> - Posible mal uso
-                            <div class="text-muted">Hoy, 09:15 a.m</div>
-                        </div>
-                    </div>
-                    
-                    <div class="alert alert-warning">
-                        <div class="alert-icon">!</div>
-                        <div>
-                            <strong>Día inusual</strong> - Lunes con 25% menos impresiones
-                            <div class="text-muted">Ayer, 5:30 p.m</div>
-                        </div>
-                    </div>
+                </div>
+                
+                <div class="alert alert-warning">
+                <div class="alert-icon">!</div>
+                <div>
+                    <strong>P33</strong> - 45% sobre el promedio
+                    <div class="text-muted">Hace 4 horas</div>
+                </div>
+                </div>
+                
+                <div class="alert alert-danger">
+                <div class="alert-icon">!</div>
+                <div>
+                    <strong>Concresa</strong> - Posible mal uso
+                    <div class="text-muted">Hoy, 09:15 a.m</div>
+                </div>
+                </div>
+                
+                <div class="alert alert-warning">
+                <div class="alert-icon">!</div>
+                <div>
+                    <strong>Día inusual</strong> - Lunes con 25% menos impresiones
+                    <div class="text-muted">Ayer, 5:30 p.m</div>
+                </div>
                 </div>
             </div>
-            
-            <!-- Estadísticas por departamento -->
-            <div class="card department-stats">
-                <div class="card-header">
-                    <h3 class="card-title">Impresiones por departamento</h3>
-                    <select>
-                        <option>Este mes</option>
-                        <option>Esta semana</option>
-                        <option>Hoy</option>
-                    </select>
-                </div>
-                <div class="card-body">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Departamento</th>
-                                <th>Impresiones</th>
-                                <th>Páginas</th>
-                                <th>Variación</th>
-                                <th>Estado</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Departamento 1</td>
-                                <td>1,842</td>
-                                <td>15,328</td>
-                                <td class="text-danger">+32%</td>
-                                <td><span class="badge badge-danger">Alerta</span></td>
-                            </tr>
-                            <tr>
-                                <td>Departamento 2</td>
-                                <td>1,205</td>
-                                <td>9,840</td>
-                                <td class="text-success">-5%</td>
-                                <td><span class="badge">Normal</span></td>
-                            </tr>
-                            <tr>
-                                <td>Departamento 3</td>
-                                <td>2,451</td>
-                                <td>18,925</td>
-                                <td class="text-warning">+15%</td>
-                                <td><span class="badge badge-warning">Observar</span></td>
-                            </tr>
-                            <tr>
-                                <td>Departamento 4</td>
-                                <td>892</td>
-                                <td>6,125</td>
-                                <td class="text-success">-12%</td>
-                                <td><span class="badge">Normal</span></td>
-                            </tr>
-                            <tr>
-                                <td>Departamento 5</td>
-                                <td>3,124</td>
-                                <td>24,856</td>
-                                <td class="text-danger">+28%</td>
-                                <td><span class="badge badge-danger">Alerta</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
             </div>
             
-            <!-- Actividad reciente -->
+            <!-- Actividad reciente Torre -->
             <div class="card recent-activity">
-                <div class="card-header">
-                    <h3 class="card-title">Actividad reciente</h3>
-                    <button class="btn btn-primary btn-sm">Exportar</button>
-                </div>
-                <div class="card-body">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Hora</th>
-                                <th>Carnet</th>
-                                <th>Páginas</th>
-                                <th>Detalles</th>
-                                <th>Impresora</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>10:15 a.m</td>
-                                <td>JR125</td>
-                                <td class="text-danger">128</td>
-                                <td>Reporte_final.pdf</td>
-                                <td>TBMP31L1</td>
-                            </tr>
-                            <tr>
-                                <td>10:12 a.m</td>
-                                <td>MG542</td>
-                                <td>2</td>
-                                <td>Factura_1254.pdf</td>
-                                <td>TBMP31L1</td>
-                            </tr>
-                            <tr>
-                                <td>10:05 a.m</td>
-                                <td>AB321</td>
-                                <td class="text-danger">96</td>
-                                <td>Presentacion.pptx</td>
-                                <td>TBMP31L1</td>
-                            </tr>
-                            <tr>
-                                <td>09:58 a.m</td>
-                                <td>TC789</td>
-                                <td>12</td>
-                                <td>Contrato.docx</td>
-                                <td>TBMP31L1</td>
-                            </tr>
-                            <tr>
-                                <td>09:45 a.m</td>
-                                <td>JR125</td>
-                                <td class="text-danger">112</td>
-                                <td>Anexos.pdf</td>
-                                <td>TBMP31L1</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <div class="card-header">
+                <h3 class="card-title">Actividad reciente Torre</h3>
+                <button class="btn btn-primary btn-sm" id="export-torre">Exportar a Excel</button>
+            </div>
+            <div class="card-body">
+                <table id="table-torre">
+                <thead>
+                    <tr>
+                    <th>Hora</th>
+                    <th>Carnet</th>
+                    <th>Páginas</th>
+                    <th>Detalles</th>
+                    <th>Impresora</th>
+                    <th>Piso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>10:15 a.m</td>
+                    <td>JR125</td>
+                    <td class="text-danger">128</td>
+                    <td>Reporte_final.pdf</td>
+                    <td>TBMP31L1</td>
+                    <td>P21</td>
+                    </tr>
+                    <tr>
+                    <td>10:12 a.m</td>
+                    <td>MG542</td>
+                    <td>2</td>
+                    <td>Factura_1254.pdf</td>
+                    <td>TBMP31L1</td>
+                    <td>P33</td>
+                    </tr>
+                    <tr>
+                    <td>10:05 a.m</td>
+                    <td>AB321</td>
+                    <td class="text-danger">96</td>
+                    <td>Presentacion.pptx</td>
+                    <td>TBMP31L1</td>
+                    <td>P29</td>
+                    </tr>
+                    <tr>
+                    <td>09:58 a.m</td>
+                    <td>TC789</td>
+                    <td>12</td>
+                    <td>Contrato.docx</td>
+                    <td>TBMP31L1</td>
+                    <td>SOT</td>
+                    </tr>
+                    <tr>
+                    <td>09:45 a.m</td>
+                    <td>JR125</td>
+                    <td class="text-danger">112</td>
+                    <td>Anexos.pdf</td>
+                    <td>TBMP31L1</td>
+                    <td>P06</td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+            </div>
+
+            <!-- Actividad reciente Agencias -->
+            <div class="card recent-activity">
+            <div class="card-header">
+                <h3 class="card-title">Actividad reciente Agencias</h3>
+                <button class="btn btn-primary btn-sm" id="export-agencias">Exportar a Excel</button>
+            </div>
+            <div class="card-body">
+                <table id="table-agencias">
+                <thead>
+                    <tr>
+                    <th>Hora</th>
+                    <th>Carnet</th>
+                    <th>Páginas</th>
+                    <th>Detalles</th>
+                    <th>Impresora</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>10:10 a.m</td>
+                    <td>AG201</td>
+                    <td>8</td>
+                    <td>Solicitud_credito.pdf</td>
+                    <td>AGMP01A1</td>
+                    </tr>
+                    <tr>
+                    <td>09:55 a.m</td>
+                    <td>AG305</td>
+                    <td class="text-danger">54</td>
+                    <td>Reporte_agencia.xlsx</td>
+                    <td>AGMP02A2</td>
+                    </tr>
+                    <tr>
+                    <td>09:40 a.m</td>
+                    <td>AG112</td>
+                    <td>3</td>
+                    <td>Recibo.pdf</td>
+                    <td>AGMP03A3</td>
+                    </tr>
+                    <tr>
+                    <td>09:30 a.m</td>
+                    <td>AG201</td>
+                    <td>10</td>
+                    <td>Contrato_agencia.docx</td>
+                    <td>AGMP01A1</td>
+                    </tr>
+                    <tr>
+                    <td>09:15 a.m</td>
+                    <td>AG305</td>
+                    <td class="text-danger">60</td>
+                    <td>Resumen_operaciones.pdf</td>
+                    <td>AGMP02A2</td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
             </div>
         </div>
+        <!-- SheetJS CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+        <script>
+        function exportTableToExcel(tableId, filename) {
+            var table = document.getElementById(tableId);
+            var wb = XLSX.utils.table_to_book(table, {sheet:"Sheet1"});
+            XLSX.writeFile(wb, filename);
+        }
+
+        document.getElementById('export-torre').addEventListener('click', function() {
+            exportTableToExcel('table-torre', 'actividad_torre.xlsx');
+        });
+
+        document.getElementById('export-agencias').addEventListener('click', function() {
+            exportTableToExcel('table-agencias', 'actividad_agencias.xlsx');
+        });
+        </script>
     </main>
     <script>
     const labels = [];
