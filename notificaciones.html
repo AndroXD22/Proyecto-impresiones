@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Notificaciones de Irregularidades</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background: #f4f6f9;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 540px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        .card.irregularities {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            overflow: hidden;
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 24px 12px 24px;
+            border-bottom: 1px solid #eee;
+        }
+        .card-title {
+            margin: 0;
+            font-size: 1.25rem;
+            color: #333;
+        }
+        .btn {
+            padding: 6px 16px;
+            font-size: 0.95rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background: #007bff;
+            color: #fff;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        .card-body {
+            padding: 18px 24px;
+        }
+        .alert {
+            display: flex;
+            align-items: flex-start;
+            padding: 14px 16px;
+            border-radius: 5px;
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+        .alert:last-child {
+            margin-bottom: 0;
+        }
+        .alert-danger {
+            background: #ffeaea;
+            color: #b71c1c;
+            border-left: 4px solid #e53935;
+        }
+        .alert-warning {
+            background: #fff8e1;
+            color: #8d6e00;
+            border-left: 4px solid #ffb300;
+        }
+        .alert-icon {
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-right: 14px;
+            margin-top: 2px;
+            width: 28px;
+            text-align: center;
+        }
+        .text-muted {
+            color: #888;
+            font-size: 0.92em;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card irregularities">
+            <div class="card-header">
+                <h3 class="card-title">Irregularidades detectadas</h3>
+                <a class="btn btn-primary btn-sm" href="registro_irregularidades.html">Ver todas</a>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-danger">
+                    <div class="alert-icon">!</div>
+                    <div>
+                        <strong>Usuario B583314</strong> - 3 impresiones con más de 100 páginas
+                        <div class="text-muted">Hace 2 horas</div>
+                    </div>
+                </div>
+                <div class="alert alert-warning">
+                    <div class="alert-icon">!</div>
+                    <div>
+                        <strong>P33</strong> - 45% sobre el promedio
+                        <div class="text-muted">Hace 4 horas</div>
+                    </div>
+                </div>
+                <div class="alert alert-danger">
+                    <div class="alert-icon">!</div>
+                    <div>
+                        <strong>Concresa</strong> - Posible mal uso
+                        <div class="text-muted">Hoy, 09:15 a.m</div>
+                    </div>
+                </div>
+                <div class="alert alert-warning">
+                    <div class="alert-icon">!</div>
+                    <div>
+                        <strong>Día inusual</strong> - Lunes con 25% menos impresiones
+                        <div class="text-muted">Ayer, 5:30 p.m</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -6,6 +6,7 @@
     <title>Registro de Irregularidades</title>
     <link rel="stylesheet" href="home.css">
     <link rel="icon" href="icono1-removebg-preview.ico">
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
 </head>
 <body>
     <header>
@@ -41,10 +42,10 @@
         <div class="card">
             <div class="card-header">
                 <h2>Listado general de irregularidades</h2>
-                <button class="btn btn-primary btn-sm">Exportar</button>
+                <button class="btn btn-primary btn-sm" onclick="exportarExcel()">Exportar a Excel</button>
             </div>
             <div class="card-body">
-                <table>
+                <table id="irregularidades-table">
                     <thead>
                         <tr>
                             <th>Fecha</th>
@@ -95,7 +96,31 @@
     </main>
 
     <script>
-        document.getElementById('current-date').textContent = new Date().toLocaleDateString();
-    </script>
+    document.getElementById('current-date').textContent = new Date().toLocaleDateString();
+
+    function exportarExcel() {
+        const tabla = document.getElementById("irregularidades-table");
+        const wb = XLSX.utils.table_to_book(tabla, { sheet: "Irregularidades" });
+        const ws = wb.Sheets["Irregularidades"];
+
+        // Recorremos las filas de la hoja de Excel para buscar el valor "Crítica" y aplicar el estilo
+        const rows = ws['!rows'] || []; // Obtenemos las filas, si no existe las inicializamos
+        const rango = ws['!ref']; // Rango de celdas de la hoja
+
+        // Analizamos las filas para aplicar el estilo
+        for (let row = 2; row <= 4; row++) { // Empieza desde 2 para saltarse el encabezado
+            const tipoCell = ws[`H${row}`]; // Columna G es "Tipo"
+
+            if (tipoCell && tipoCell.v === "Crítica") {
+                // Aplicar fondo rojo en la celda de "Tipo"
+                tipoCell.s = { fill: { fgColor: { rgb: "FF0000" } }, font: { color: { rgb: "FFFFFF" } } };
+            }
+        }
+
+        // Escribimos el archivo Excel
+        XLSX.writeFile(wb, "registro_irregularidades.xlsx");
+    }
+</script>
+
 </body>
 </html>

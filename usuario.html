@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad por usuarios</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="icon" href="icono1-removebg-preview.ico">
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="branding">
+                <img src="logo_mercantil2-removebg-preview.png" alt="logo">
+                <h1>Control de Impresiones</h1>
+            </div>
+            <div class="header-info">
+                <div class="date-display">
+                    <span id="current-date"></span>
+                </div>
+                <div class="quick-stats">
+                    <span><i class="fas fa-exclamation-triangle"></i> Historial de Usuarios</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="home.html">Inicio</a></li>
+                <li><a href="registro_impresiones.html" class="active">Registro de Impresiones</a></li>
+                <li><a href="registro_irregularidades.html">Irregularidades</a></li>
+                <li><a href="#">Usuarios</a></li>
+                <li><a href="ubicaciones.html">Ubicaciones</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2>Historial Completo de Usuarios</h2>
+                <div class="filters">
+                    <input type="text" id="searchInput" placeholder="Filtrar por usuarios..." onkeyup="filtrarTabla()">
+                    <button class="btn btn-primary btn-sm" onclick="exportarExcel()">Exportar a Excel</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <table id="tablaImpresiones">
+                    <tr>
+                                <th>Usuario</th>
+                                <th>Impresiones hoy</th>
+                                <th>Páginas hoy</th>
+                                <th>Último documento</th>
+                                <th>Hora</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+    <td><a class="user-link" href="perfil.html?id=B583314">B583314</a></td>
+    <td>3</td>
+    <td class="text-danger">48</td>
+    <td>Informe_finanzas.pdf</td>
+    <td>10:20 a.m</td>
+</tr>
+<tr>
+    <td><a class="user-link" href="perfil.html?id=B436271">B436271</a></td>
+    <td>2</td>
+    <td>40</td>
+    <td>Reporte_RH.pdf</td>
+    <td>10:15 a.m</td>
+</tr>
+<tr>
+    <td><a class="user-link" href="perfil.html?id=B123456">B123456</a></td>
+    <td>1</td>
+    <td>2</td>
+    <td>Nómina_abril.pdf</td>
+    <td>10:12 a.m</td>
+</tr>
+<tr>
+    <td><a class="user-link" href="perfil.html?id=B854832">B854832</a></td>
+    <td>1</td>
+    <td>16</td>
+    <td>Evaluaciones.pptx</td>
+    <td>10:05 a.m</td>
+</tr>
+<tr>
+    <td><a class="user-link" href="perfil.html?id=B274832">B274832</a></td>
+    <td>1</td>
+    <td>12</td>
+    <td>Contratos_nuevos.docx</td>
+    <td>09:58 a.m</td>
+</tr>
+
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Mostrar la fecha actual
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString();
+
+        // Función para filtrar por impresora (IP)
+        function filtrarTabla() {
+            const input = document.getElementById("searchInput").value.toLowerCase();
+            const rows = document.querySelectorAll("#tablaImpresiones tbody tr");
+
+            rows.forEach(row => {
+                const impresora = row.cells[0].textContent.toLowerCase();
+                row.style.display = impresora.includes(input) ? "" : "none";
+            });
+        }
+
+        // Función para exportar tabla a Excel
+        function exportarExcel() {
+            const tabla = document.getElementById("tablaImpresiones");
+            const wb = XLSX.utils.table_to_book(tabla, { sheet: "Impresiones" });
+            XLSX.writeFile(wb, "registro_usuarios.xlsx");
+        }
+    </script>
+</body>
+</html>

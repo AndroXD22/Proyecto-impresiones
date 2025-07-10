@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="icon" href="icono1-removebg-preview.ico">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="branding">
+                <img src="logo_mercantil2-removebg-preview.png" alt="logo">
+                <h1>Control de Impresiones</h1>
+            </div>
+            <div class="header-info">
+                <div class="date-display">
+                    <span id="current-date"></span>
+                </div>
+                <div class="quick-stats">
+                    <span><i class="fas fa-user"></i> Perfil de Usuario</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="home.html">Inicio</a></li>
+                <li><a href="registro_impresiones.html">Registro de Impresiones</a></li>
+                <li><a href="registro_irregularidades.html">Irregularidades</a></li>
+                <li><a href="#">Usuarios</a></li>
+                <li><a href="ubicaciones.html">Ubicaciones</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2 id="user-title">Usuario</h2>
+            </div>
+            <div class="card-body">
+                <div class="user-info">
+                    <p><strong>ID de usuario:</strong> <span id="user-id"></span></p>
+                    <p><strong>Impresiones hoy:</strong> <span id="user-prints"></span></p>
+                    <p><strong>Páginas hoy:</strong> <span id="user-pages"></span></p>
+                    <p><strong>Último documento:</strong> <span id="user-lastdoc"></span></p>
+                    <p><strong>Hora:</strong> <span id="user-time"></span></p>
+                </div>
+                <hr>
+                <h3>Historial de impresiones</h3>
+                <table id="user-history">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Documento</th>
+                            <th>Páginas</th>
+                            <th>Hora</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Historial -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Mostrar la fecha actual
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString();
+
+        // Datos de ejemplo (simulación)
+        const usuarios = {
+            "B583314": {
+                id: "B583314",
+                impresiones: 3,
+                paginas: 48,
+                ultimo: "Informe_finanzas.pdf",
+                hora: "10:20 a.m",
+                historial: [
+                    { fecha: "2024-06-10", doc: "Informe_finanzas.pdf", paginas: 48, hora: "10:20 a.m" },
+                    { fecha: "2024-06-09", doc: "Resumen_ventas.pdf", paginas: 12, hora: "09:15 a.m" }
+                ]
+            },
+            "B436271": {
+                id: "B436271",
+                impresiones: 2,
+                paginas: 40,
+                ultimo: "Reporte_RH.pdf",
+                hora: "10:15 a.m",
+                historial: [
+                    { fecha: "2024-06-10", doc: "Reporte_RH.pdf", paginas: 40, hora: "10:15 a.m" },
+                    { fecha: "2024-06-09", doc: "Planilla.pdf", paginas: 8, hora: "08:50 a.m" }
+                ]
+            },
+            "B123456": {
+                id: "B123456",
+                impresiones: 1,
+                paginas: 2,
+                ultimo: "Nómina_abril.pdf",
+                hora: "10:12 a.m",
+                historial: [
+                    { fecha: "2024-06-10", doc: "Nómina_abril.pdf", paginas: 2, hora: "10:12 a.m" }
+                ]
+            },
+            "B854832": {
+                id: "B854832",
+                impresiones: 1,
+                paginas: 16,
+                ultimo: "Evaluaciones.pptx",
+                hora: "10:05 a.m",
+                historial: [
+                    { fecha: "2024-06-10", doc: "Evaluaciones.pptx", paginas: 16, hora: "10:05 a.m" }
+                ]
+            },
+            "B274832": {
+                id: "B274832",
+                impresiones: 1,
+                paginas: 12,
+                ultimo: "Contratos_nuevos.docx",
+                hora: "09:58 a.m",
+                historial: [
+                    { fecha: "2024-06-10", doc: "Contratos_nuevos.docx", paginas: 12, hora: "09:58 a.m" }
+                ]
+            }
+        };
+
+        // Obtener el ID del usuario de la URL
+        function getUserIdFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('id');
+        }
+
+        function mostrarPerfilUsuario() {
+            const userId = getUserIdFromUrl();
+            const user = usuarios[userId];
+
+            if (!user) {
+                document.getElementById('user-title').textContent = "Usuario no encontrado";
+                document.querySelector('.user-info').innerHTML = "<p>No hay información disponible para este usuario.</p>";
+                return;
+            }
+
+            document.getElementById('user-title').textContent = `Perfil de ${user.id}`;
+            document.getElementById('user-id').textContent = user.id;
+            document.getElementById('user-prints').textContent = user.impresiones;
+            document.getElementById('user-pages').textContent = user.paginas;
+            document.getElementById('user-lastdoc').textContent = user.ultimo;
+            document.getElementById('user-time').textContent = user.hora;
+
+            // Llenar historial
+            const tbody = document.querySelector('#user-history tbody');
+            tbody.innerHTML = "";
+            user.historial.forEach(item => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td>${item.fecha}</td><td>${item.doc}</td><td>${item.paginas}</td><td>${item.hora}</td>`;
+                tbody.appendChild(tr);
+            });
+        }
+
+        mostrarPerfilUsuario();
+    </script>
+</body>
+</html>
